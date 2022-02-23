@@ -53,7 +53,7 @@ export default {
   data(){
     return{
       activeIndex:'1',
-      currentView:'AdminIndex'
+      currentView:'FileAdmin'
     }
   },
   methods:{
@@ -98,9 +98,11 @@ h1 #identity{
 }
 
 #view{
-  width: auto;
-  top:50px;
-  left:200px;
+  width:900px;
+  position: fixed;
+    top:50px;
+    bottom: 0;
+    left: 200px;
 }
 </style>
 
