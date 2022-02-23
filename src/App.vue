@@ -6,22 +6,62 @@
       </el-header>
       <el-aside>
         <div class="sidebar-container">
-                  <AdminMenu />
+            <div id="choose">
+              <el-menu
+                  class = "menu-admin"
+                  background-color = "#545c64"
+                  text-color = '#fff'
+                  active-text-color = "#ffdo4b"
+              >
+                  <el-menu-item index="首页" v-on:click="viewChange('AdminIndex')" >
+                      <i class="el-icon-menu"></i>
+                      <span slot="title">首页</span>
+                  </el-menu-item>
+                  <el-menu-item index="用户管理" v-on:click="viewChange('UserAdmin')">
+                      <i class="el-icon-menu"></i>
+                      <span slot="title">用户管理</span>
+                  </el-menu-item>
+                  <el-menu-item index="文件管理">
+                      <i class="el-icon-menu" v-on:click="viewChange('FileAdmin')"></i> 
+                      <span slot="title">文件管理</span>
+                  </el-menu-item>
+              </el-menu>
+            </div>
         </div>
       </el-aside>
+      <el-main>
+        <div id="view" :is="currentView"></div>
+      </el-main>
     </el-contioner>
   </div>
 </template>
 
 
 <script>
-import AdminMenu from '@/components/AdminMenu'
+
+import AdminIndex from './views/AdminIndex'
+import UserAdmin from './views/UserAdmin'
+import FileAdmin from './views/FileAdmin'
+
 export default {
   name: 'App',
   components:{
-    AdminMenu
+    AdminIndex,
+    UserAdmin,
+    FileAdmin
+  },
+  data(){
+    return{
+      activeIndex:'1',
+      currentView:'AdminIndex'
+    }
+  },
+  methods:{
+    viewChange(item){
+      this.currentView = item;
+    }
   }
-};
+}
 </script>
 
 <style>
@@ -55,6 +95,12 @@ h1 #identity{
     overflow: hidden;
     -webkit-box-shadow: 2px 0 6px rgb(0 21 41 / 35%);
     box-shadow: 2px 0 6px rgb(0 21 41 / 35%);
+}
+
+#view{
+  width: auto;
+  top:50px;
+  left:200px;
 }
 </style>
 
