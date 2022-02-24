@@ -2,8 +2,9 @@
     <el-contioner>
         <el-head>
             课程名称<input type="text">
-            <el-button type="primary" icon="el-icon-search">查找课程大纲</el-button>
-            <input type="file"><el-button type="primary" icon="el-icon-plus">上传课程大纲</el-button>
+            <el-button type="primary" icon="el-icon-search">查找大纲</el-button>
+            <input type="file"><el-button type="primary" icon="el-icon-plus">上传大纲</el-button>
+            <Pages :currentPage="currentPage" :total="total" :pageSize="pageSize" @pageChange="pageChange"/>
         </el-head>
         <el-main>
             <el-form :model="fileForm" ref="fileForm">
@@ -16,9 +17,6 @@
                 </el-card>
             </el-form>
         </el-main>
-        <el-footer>
-           <TablePaging :currentPage="currentPage" :total="total" :pageSize="pageSize" @pageChange="pageChange"/>
-        </el-footer>
     </el-contioner>
 </template>
 

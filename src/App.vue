@@ -98,11 +98,10 @@ h1 #identity{
 }
 
 #view{
-  width:900px;
+  width:1000px;
   position: fixed;
-    top:50px;
-    bottom: 0;
-    left: 200px;
+  top:50px;
+  left: 200px;
 }
 </style>
 

@@ -1,6 +1,5 @@
 <template>
   <div class="pageGroup">
-    <el-button size="small" @click="pervious">上一页</el-button>
     <el-pagination
       @size-change="handleSizeChange"
       @current-change="handleCurrentChange"
@@ -10,6 +9,7 @@
       :total="total"
       ref="pageGroup">
     </el-pagination>
+    <el-button size="small" @click="pervious">上一页</el-button>
     <el-button size="small" @click="next">下一页</el-button>
   </div>
 </template>
