@@ -3,7 +3,19 @@
         <el-head>
             课程名称<input type="text">
             <el-button type="primary" icon="el-icon-search">查找大纲</el-button>
-            <input type="file"><el-button type="primary" icon="el-icon-plus">上传大纲</el-button>
+            
+            <el-upload
+                class="upload-file"
+                action="/doUpload"
+                drag multiple :headers="headers" :auto-upload="true"
+				 :file-list="fileList" :on-change="handleChange">
+
+                <i class="el-icon-upload"></i>
+                <div class="el-upload__text">将文件拖到此处，或<em>点击上传</em></div>
+                <!--<div class="el-upload__tip" slot="tip">上传教学大纲</div>-->
+                <el-button type="primary" icon="el-icon-plus">上传大纲</el-button> 
+            </el-upload>
+
             <Pages :currentPage="currentPage" :total="total" :pageSize="pageSize" @pageChange="pageChange"/>
         </el-head>
         <el-main>
