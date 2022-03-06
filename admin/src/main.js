@@ -6,8 +6,7 @@ import router from './router'
 //引入ElementUI
 import ElementUI from 'element-ui'; //引入ElementUI
 import 'element-ui/lib/theme-chalk/index.css' //引入element-ui样式
-
-Vue.config.productionTip = false
+Vue.use(ElementUI);
 
 /* eslint-disable no-new */
 new Vue({
@@ -16,4 +15,3 @@ new Vue({
     components: { App },
     template: '<App/>'
 })
-Vue.use(ElementUI)

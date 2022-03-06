@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <el-contioner>
+    <el-container>
       <el-header>
         <h1>大纲可视化分析系统<span id="identity">管理员端</span></h1>
       </el-header>
@@ -21,8 +21,8 @@
                       <i class="el-icon-menu"></i>
                       <span slot="title">用户管理</span>
                   </el-menu-item>
-                  <el-menu-item index="文件管理">
-                      <i class="el-icon-menu" v-on:click="viewChange('FileAdmin')"></i> 
+                  <el-menu-item index="文件管理" v-on:click="viewChange('FileAdmin')">
+                      <i class="el-icon-menu" ></i> 
                       <span slot="title">文件管理</span>
                   </el-menu-item>
               </el-menu>
@@ -32,7 +32,7 @@
       <el-main>
         <div id="view" :is="currentView"></div>
       </el-main>
-    </el-contioner>
+    </el-container>
   </div>
 </template>
 

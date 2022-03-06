@@ -18,9 +18,9 @@
 export default {
   name: 'Pages',
   props: {
-    currentPage: Number,
-    pageSize: Number,
-    total: Number,
+    currentPage: 10,
+    pageSize: 10,
+    total: 10,
   },
   data() {
     return {
