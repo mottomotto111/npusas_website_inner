@@ -13,13 +13,16 @@
             <!--<div class="el-upload__tip" slot="tip">上传教学大纲</div>-->
             <el-button type="primary" icon="el-icon-plus">上传大纲</el-button> 
         </el-upload>
-        <Pages :currentPage="currentPage" :total="total" :pageSize="pageSize" @pageChange="pageChange"/>
+        <div class="pageGroup">
+            <el-button size="small" id="pageprev">上一页</el-button>
+            <el-button size="small" id="pageafter">下一页</el-button>
+        </div>
         <el-form :model="fileForm" ref="fileForm">
             <el-card class="fileItem" v-for="(item, idx) in fileForm.fileList" :key="idx">
                 <el-form-item label="课程名" :prop="`fileList.${idx}.name`">
-                    <el-input v-model="item.name" />
+                    <el-input v-model="item.name" readonly="true"/>
                     <el-button type="primary" icon="el-icon-delete" class="delete"></el-button>
-                    <el-button type="primary"id="analyse" >分析</el-button>
+                    <el-button type="primary" id="analyse" >分析</el-button>
                 </el-form-item>
             </el-card>
         </el-form>
@@ -27,7 +30,6 @@
 </template>
 
 <script>
-import Pages from './Page';
 
 var file1 = {
     name:'Tom'
@@ -45,9 +47,6 @@ export default{
                 fileList:[file1,file2]
             }
         }
-    },
-    components:{
-        Pages
     }
 }
 </script>
@@ -59,5 +58,9 @@ export default{
     }
     .analyse{
         margin-top:5px;
+    }
+
+    .pageGroup #pageafter{
+        float: right;
     }
 </style>

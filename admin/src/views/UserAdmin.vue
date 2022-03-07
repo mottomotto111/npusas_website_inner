@@ -3,11 +3,14 @@
         用户名<input type="text">
         <el-button type="primary" icon="el-icon-search">查找用户</el-button>
         <el-button type="primary" icon="el-icon-plus" id="add">增加用户</el-button>
-        <Pages :currentPage="currentPage" :total="total" :pageSize="pageSize" @pageChange="pageChange"/>
+        <div class="pageGroup">
+            <el-button size="small" id="pageprev">上一页</el-button>
+            <el-button size="small" id="pageafter">下一页</el-button>
+        </div>
         <el-form :model="userForm" ref="userForm">
             <el-card class="userItem" v-for="(item, idx) in userForm.userList" :key="idx">
                 <el-form-item label="名称" :prop="`userList.${idx}.name`">
-                    <el-input v-model="item.name" />
+                    <el-input v-model="item.name" readonly="true"/>
                     <el-button type="primary" icon="el-icon-delete"></el-button>
                 </el-form-item>
             </el-card>
@@ -24,7 +27,6 @@ var user2 = {
     name:'Jack'
 }
 
-import Pages from './Page.vue'
 
 export default{
     name:"UserAdmin",
@@ -34,22 +36,21 @@ export default{
                 userList:[user1,user2]
             }
         }
-    },
-    components:{
-        Pages
     }
 }
 
 </script>
 
 <style>
+    #add{
+        float:right;
+    }
 
-#add{
-    float:right;
-}
+    .el-container .el-main{
 
-.el-container .el-main{
-
-    left:0;
-}
+        left:0;
+    }
+    .pageGroup #pageafter{
+        float: right;
+    }
 </style>
