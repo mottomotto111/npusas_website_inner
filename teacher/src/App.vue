@@ -1,44 +1,31 @@
 <template>
   <div id="app">
-    <el-container>
-      <el-header>
-        <h1>大纲可视化分析系统<span id="identity">教师端</span></h1>
-      </el-header>
-      <el-aside>
-        <div class="sidebar-container">
-            <div id="choose">
-              <el-menu
-                  class = "menu-admin"
-                  background-color = "#545c64"
-                  text-color = '#fff'
-                  active-text-color = "#ffdo4b"
-              >
-                  <el-menu-item index="首页"  >
-                      <i class="el-icon-menu"></i>
-                      <span slot="title">首页</span>
-                  </el-menu-item>
-                  <el-menu-item index="管理大纲" v-on:click="viewChange('FileAdmin')">
-                      <i class="el-icon-menu"></i>
-                      <span slot="title">管理大纲</span>
-                  </el-menu-item>
-                  <el-menu-item index="分析大纲"  v-on:click="viewChange('FileSubmit')">
-                      <i class="el-icon-menu"></i>
-                      <span slot="title">分析大纲</span>
-                  </el-menu-item>
-              </el-menu>
-            </div>
-        </div>
-      </el-aside>
-      <el-main>
-        <div :is="currentView" id="view" ></div>
-      </el-main>
-    </el-container>
+      <h1>大纲可视化分析系统<span id="identity">教师端</span></h1>
+      <div class="sidebar-container">
+          <div id="choose">
+            <el-menu
+                class = "menu-admin"
+                background-color = "#545c64"
+                text-color = '#fff'
+                active-text-color = "#ffdo4b"
+            >
+                <el-menu-item index="首页"  >
+                    <i class="el-icon-menu"></i>
+                    <span slot="title">首页</span>
+                </el-menu-item>
+                <el-menu-item index="管理大纲" v-on:click="viewChange('FileAdmin')">
+                    <i class="el-icon-menu"></i>
+                    <span slot="title">管理大纲</span>
+                </el-menu-item>
+            </el-menu>
+          </div>
+      </div>
+      <div :is="currentView" id="view" ></div>
   </div>
 </template>
 
 <script>
 /* eslint-disable */
-import FileSubmit from './views/FileSubmit.vue'
 import FileAdmin from './views/FileAdmin.vue'
 
 export default {
@@ -49,9 +36,8 @@ export default {
       currentView:'FileAdmin'
     }
   },
-  conpoments:{
-    FileSubmit,
-    FileAdmin,
+  components:{
+    FileAdmin
   },
   methods:{
     viewChange(item){
